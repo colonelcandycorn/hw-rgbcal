@@ -13,6 +13,12 @@ impl Rgb {
     
     ///    calculates the frame time for the RGB LEDs based on the frame rate.
     ///    The frame rate should be a multiple of 10 and be between 10 and 160
+    /// 
+    /// # Arguments
+    /// * `frame_rate` - The frame rate in frames per second. (should be between 10 and 160 but this is not enforced)
+    /// # Returns
+    /// A `u64` value representing the time in microseconds for each frame tick.
+    /// The formula used is `1_000_000 / (3 * frame_rate * LEVELS)`, where `LEVELS` is the number of levels for each LED.
     fn frame_tick_time(frame_rate: u64) -> u64 {
         1_000_000 / (3 * frame_rate * LEVELS as u64)
     }
